@@ -1,0 +1,100 @@
+{
+    "products": [
+        {
+            "id": 1,
+            "bm": "BM10001",
+            "division": "Bakery",
+            "name": "Big Choice White Soya 1 kg",
+            "desc": "Big Choice White Soya 1 kg",
+            "price": 999,
+            "mrp": 1050,
+            "discount": 20,
+            "color": "#33505a",
+            "image": "https://static-01.daraz.com.np/p/b1cb64507a62dfa3ffeb7cea7978535c.jpg_340x340q80.jpg_.webp"
+        },
+        {
+            "id": 2,
+            "bm": "bm10002",
+            "division": "Dairy",
+            "name": "bmc Chicken Masala 100 Gm",
+            "desc": "bmc Chicken Masala 100 Gm",
+            "price": 105,
+            "mrp": 105,
+            "discount": 0,
+            "color": "#33505a",
+            "image": "https://static-01.daraz.com.np/p/22bdce832f718e02a7f94d68f35d1ec2.jpg_340x340q80.jpg_.webp"
+        },
+        {
+            "id": 3,
+            "bm": "bm10003",
+            "division": "Food",
+            "name": "Meizan Sun Flower Oil 2L",
+            "desc": "Meizan Sun Flower Oil 2L",
+            "price": 800,
+            "mrp": 800,
+            "discount": 0,
+            "color": "#33505a",
+            "image": "https://static-01.daraz.com.np/p/7b719ae409c080c04868bb0097298dbc.jpg_340x340q80.jpg_.webp"
+        },
+        {
+            "id": 4,
+            "bm": "bm10004",
+            "division": "HH",
+            "name": "Saffola Gold Rice Oil 5L",
+            "desc": "Saffola Gold Rice Oil 5L",
+            "price": 2000,
+            "mrp": 2000,
+            "discount": 0,
+            "color": "#33505a",
+            "image": "https://static-01.daraz.com.np/p/15c852e3858ccc97e99eaae5f08346da.jpg_340x340q80.jpg_.webp"
+        },
+        {
+            "id": 5,
+            "bm": "bm10005",
+            "division": "Fresh",
+            "name": "Gyan Chakki Aata, 5Kg",
+            "desc": "Gyan Chakki Aata, 5Kg",
+            "price": 330,
+            "mrp": 380,
+            "discount": 5,
+            "color": "#33505a",
+            "image": "https://static-01.daraz.com.np/p/b3bb0f41810df3c42d4f5f3d37697d55.jpg_340x340q80.jpg_.webp"
+        },
+        {
+            "id": 6,
+            "bm": "bm10006",
+            "division": "Frozen",
+            "name": "Big Choice Sugar Plain 1 Kg",
+            "desc": "Big Choice Sugar Plain 1 Kg",
+            "price": 90,
+            "mrp": 90,
+            "discount": 0,
+            "color": "#33505a",
+            "image": "https://static-01.daraz.com.np/p/c13f6a6204e6882f5d1f69bfddc5aa0c.jpg_340x340q80.jpg_.webp"
+        },
+        {
+            "id": 7,
+            "bm": "bm10007",
+            "division": "liq",
+            "name": "Tokla Tea Pouch 1 Kg",
+            "desc": "Tokla Tea Pouch 1 Kg",
+            "price": 630,
+            "mrp": 630,
+            "discount": 0,
+            "color": "#33505a",
+            "image": "https://static-01.daraz.com.np/p/e07c27fc309f1f067c3a2e7e695cdb10.jpg_340x340q80.jpg_.webp"
+        },
+        {
+            "id": 8,
+            "bm": "bm10008",
+            "division": "Bakery",
+            "name": "Horlicks Classic Malt Jar 500g",
+            "desc": "Horlicks Classic Malt Jar 500g",
+            "price": 400,
+            "mrp": 400,
+            "discount": 0,
+            "color": "#33505a",
+            "image": "https://static-01.daraz.com.np/p/0a778943c19a29f4041d7776924c965d.jpg_340x340q80.jpg_.webp"
+        }
+    ]
+}
