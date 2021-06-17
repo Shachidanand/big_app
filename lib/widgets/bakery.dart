@@ -55,12 +55,14 @@ class Bakery extends StatelessWidget {
                       itemBuilder: (BuildContext context, int index) => InkWell(
                         onTap: () {
                           Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => HomeDetailPage(
-                                      catalog: CatalogModel.items[index])));
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => HomeDetailPage(
+                                  catalog: CatalogModel.items[index]),
+                            ),
+                          );
                         },
-                        child: ItemWidget(item: CatalogModel.items[index]),
+                        child: ItemWidget(catalog: CatalogModel.items[index]),
                       ),
                     )
                   : const Center(

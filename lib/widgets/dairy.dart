@@ -51,7 +51,7 @@ class Dairy extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
                 itemCount: CatalogModel.items.length,
                 itemBuilder: (BuildContext context, int index) =>
-                    ItemWidget(item: CatalogModel.items[index]),
+                    ItemWidget(catalog: CatalogModel.items[index]),
               ),
             ),
           ],
