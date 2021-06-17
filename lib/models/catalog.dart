@@ -1,18 +1,5 @@
-class CatalogModel{
-  static final items = [
-  Item(
-    id: 1,
-    bm: "BM10001",
-    name: "Big Choice White Soya 1 kg",
-    price: 999,
-    division: "Bakery",
-    discount: 20,
-    mrp: 1050,
-    color: "#33505a",
-    image:
-        "https://static-01.daraz.com.np/p/b1cb64507a62dfa3ffeb7cea7978535c.jpg_340x340q80.jpg_.webp",
-  )
-];
+class CatalogModel {
+  static List<Item> items = [];
 }
 
 class Item {
@@ -36,6 +23,30 @@ class Item {
       required this.discount,
       required this.mrp,
       required this.color});
+
+  factory Item.fromMap(Map<String, dynamic> map) {
+    return Item(
+      id: map["id"],
+      bm: map["bm"],
+      name: map["name"],
+      image: map["image"],
+      price: map["price"],
+      division: map["division"],
+      discount: map["discount"],
+      mrp: map["mrp"],
+      color: map["color"],
+    );
+  }
+
+  toMap() => {
+        "id": id,
+        "bm": bm,
+        "name": name,
+        "image": image,
+        "price": price,
+        "division": division,
+        "discount": discount,
+        "mrp": mrp,
+        "color": color,
+      };
 }
-
-

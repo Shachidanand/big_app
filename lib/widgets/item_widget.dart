@@ -2,9 +2,9 @@ import 'package:big_app/models/catalog.dart';
 import 'package:flutter/material.dart';
 
 class ItemWidget extends StatelessWidget {
-  final Item item;
+  final Item catalog;
 
-  const ItemWidget({Key? key, required this.item}) : super(key: key);
+  const ItemWidget({Key? key, required this.catalog}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -13,37 +13,32 @@ class ItemWidget extends StatelessWidget {
     //   title: Text(item.name),
     // );
     return Card(
-      child: InkWell(
-        onTap: () {
-          print(item.bm);
-        },
-        child: Column(
-          children: [
-            Image.network(
-              item.image,
-              height: 170,
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(
-                item.name,
-                style: const TextStyle(
-                  fontSize: 15.0,
-                ),
+      child: Column(
+        children: [
+          Image.network(
+            catalog.image,
+            height: 170,
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(
+              catalog.name,
+              style: const TextStyle(
+                fontSize: 15.0,
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(
-                item.price.toString(),
-                style: const TextStyle(
-                  fontSize: 20.0,
-                  fontWeight: FontWeight.bold,
-                ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(
+              "रु. ${catalog.price.toString()}",
+              style: const TextStyle(
+                fontSize: 20.0,
+                fontWeight: FontWeight.bold,
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
