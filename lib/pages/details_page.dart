@@ -25,7 +25,11 @@ class HomeDetailPage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Center(
-                child: Image.network(catalog.image),
+                child: Hero(
+                    tag: Key(
+                      catalog.id.toString(),
+                    ),
+                    child: Image.network(catalog.image)),
               ),
             ],
           ),

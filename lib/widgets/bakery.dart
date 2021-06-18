@@ -1,6 +1,6 @@
 import 'package:big_app/models/catalog.dart';
-import 'package:big_app/pages/details_Page.dart';
-import 'package:big_app/widgets/item_widget.dart';
+import 'package:big_app/pages/details_page.dart';
+import 'package:big_app/widgets/homewidgets/itemlist.dart';
 import 'package:flutter/material.dart';
 
 // ignore: use_key_in_widget_constructors
@@ -52,18 +52,31 @@ class Bakery extends StatelessWidget {
                       shrinkWrap: true,
                       scrollDirection: Axis.horizontal,
                       itemCount: CatalogModel.items.length,
-                      itemBuilder: (BuildContext context, int index) => InkWell(
-                        onTap: () {
-                          Navigator.push(
+                      itemBuilder: (BuildContext context, int index) {
+                        final catalog = CatalogModel.items[index];
+                        return InkWell(
+                          onTap: () => Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => HomeDetailPage(
-                                  catalog: CatalogModel.items[index]),
+                              builder: (context) =>
+                                  HomeDetailPage(catalog: catalog),
                             ),
-                          );
-                        },
-                        child: ItemWidget(catalog: CatalogModel.items[index]),
-                      ),
+                          ),
+                          child: ItemList(catalog: catalog),
+                        );
+                      },
+                      // InkWell(
+                      //   onTap: () {
+                      //     Navigator.push(
+                      //       context,
+                      //       MaterialPageRoute(
+                      //         builder: (context) => HomeDetailPage(
+                      //             catalog: CatalogModel.items[index]),
+                      //       ),
+                      //     );
+                      //   },
+                      //   child: ItemWidget(catalog: CatalogModel.items[index]),
+                      // ),
                     )
                   : const Center(
                       child: CircularProgressIndicator(),
