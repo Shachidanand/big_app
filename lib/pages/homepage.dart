@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:big_app/models/catalog.dart';
 import 'package:big_app/widgets/bakery.dart';
-import 'package:big_app/widgets/dairy.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -103,7 +102,7 @@ class _HomePageState extends State<HomePage> {
             const SizedBox(
               height: 5,
             ),
-            Dairy(),
+            //Dairy(),
             const Text(
               'Demo Headline 2',
               style: TextStyle(fontSize: 18),
