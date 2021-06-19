@@ -12,6 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: "BigMart",
       //shome: HomePage(),
       theme: ThemeData(
@@ -19,6 +20,7 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: "/",
       routes: {
+        // ignore: prefer_const_constructors
         "/": (context) => HomePage(),
         MyRoutes.homePage: (context) => HomePage(),
         //MyRoutes.loginPage: (context) => LoginPage(),

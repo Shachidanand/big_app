@@ -26,11 +26,29 @@ class HomeDetailPage extends StatelessWidget {
             children: [
               Center(
                 child: Hero(
-                    tag: Key(
-                      catalog.id.toString(),
-                    ),
-                    child: Image.network(catalog.image)),
+                  tag: Key(
+                    catalog.id.toString(),
+                  ),
+                  child: Image.network(
+                    catalog.image,
+                    width: 300.0,
+                  ),
+                ),
               ),
+              const SizedBox(
+                height: 10,
+              ),
+              Expanded(
+                child: Container(
+                  color: Colors.grey,
+                  width: MediaQuery.of(context).size.width,
+                  child: Column(
+                    children: [
+                      Text(catalog.name),
+                    ],
+                  ),
+                ),
+              )
             ],
           ),
         ),
