@@ -8,7 +8,7 @@ class Bakery extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.amber,
+      color: Colors.deepOrange,
       child: Padding(
         padding: const EdgeInsets.only(top: 16.0),
         child: Column(

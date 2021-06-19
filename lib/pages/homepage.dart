@@ -2,6 +2,8 @@ import 'dart:convert';
 
 import 'package:big_app/models/catalog.dart';
 import 'package:big_app/widgets/bakery.dart';
+import 'package:big_app/widgets/topdivision.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -36,68 +38,59 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       drawer: const Drawer(),
       appBar: AppBar(
+        elevation: 0.0,
         title: Image.asset(
           "assets/images/logo.png",
           width: 100,
         ),
+        bottom: PreferredSize(
+          preferredSize: const Size.fromHeight(55.0),
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Container(
+              color: Colors.white,
+              child: TextFormField(
+                decoration: const InputDecoration(
+                  hintStyle: TextStyle(
+                    fontSize: 15.0,
+                  ),
+                  prefixIcon: Icon(Icons.search),
+                  hintText: "Search For Products, Brand and More",
+                  border: InputBorder.none,
+                ),
+              ),
+            ),
+          ),
+        ),
+        actions: [
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(
+              CupertinoIcons.bell_fill,
+              color: Colors.white,
+              size: 15,
+            ),
+          ),
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(
+              CupertinoIcons.cart_fill,
+              color: Colors.white,
+              size: 15,
+            ),
+          )
+        ],
       ),
       body: SingleChildScrollView(
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
+            const Padding(
+              padding: EdgeInsets.only(left: 8.0),
+              child: DivisionsWidget(),
+            ),
             Image.network(
                 "https://bigmart.com.np/images/BIGMART-BIG-BUDHABAR-OFFER_MAIN.jpg"),
-            // Container(
-            //   color: Colors.amber,
-            //   child: Padding(
-            //     padding: const EdgeInsets.only(top: 16.0),
-            //     child: Column(
-            //       crossAxisAlignment: CrossAxisAlignment.start,
-            //       children: [
-            //         Padding(
-            //           padding: const EdgeInsets.all(8.0),
-            //           child: Row(
-            //             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            //             children: [
-            //               Text(
-            //                 "Bakery",
-            //                 style: TextStyle(
-            //                   fontSize: 18.0,
-            //                   fontWeight: FontWeight.bold,
-            //                   color: Colors.white,
-            //                 ),
-            //               ),
-            //               InkWell(
-            //                 onTap: () {
-            //                   print("Bakery");
-            //                 },
-            //                 child: Text(
-            //                   "View All",
-            //                   style: TextStyle(
-            //                     fontSize: 18.0,
-            //                     fontWeight: FontWeight.bold,
-            //                     color: Colors.white,
-            //                   ),
-            //                 ),
-            //               ),
-            //             ],
-            //           ),
-            //         ),
-            //         SizedBox(
-            //           height: 250.0,
-            //           child: ListView.builder(
-            //             physics: const ClampingScrollPhysics(),
-            //             shrinkWrap: true,
-            //             scrollDirection: Axis.horizontal,
-            //             itemCount: CatalogModel.items.length,
-            //             itemBuilder: (BuildContext context, int index) =>
-            //                 ItemWidget(item: CatalogModel.items[index]),
-            //           ),
-            //         ),
-            //       ],
-            //     ),
-            //   ),
-            // ),
             Bakery(),
             const SizedBox(
               height: 5,
@@ -113,27 +106,10 @@ class _HomePageState extends State<HomePage> {
                   subtitle:
                       const Text('this is a description of the motivation')),
             ),
+            Bakery(),
           ],
         ),
       ),
-      // body: SingleChildScrollView(
-      //         child: Column(
-      //     children: [
-      //       Container(
-      //         child: Image.network(
-      //             "https://bigmart.com.np/images/BIGMART-BIG-BUDHABAR-OFFER_MAIN.jpg"),
-      //       ),
-      //       Container(
-      //         child: ListView.builder(
-      //           itemCount: CatalogModel.items.length,
-      //           itemBuilder: (context, index) {
-      //             return ItemWidget(item: CatalogModel.items[index]);
-      //           },
-      //         ),
-      //       ),
-      //     ],
-      //   ),
-      // ),
     );
   }
 }
