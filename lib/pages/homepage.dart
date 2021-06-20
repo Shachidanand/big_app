@@ -58,13 +58,14 @@ class _HomePageState extends State<HomePage> {
                   height: 45.0,
                   color: Colors.white,
                   child: Padding(
-                    padding: EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(8.0),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.start,
+                      // ignore: prefer_const_literals_to_create_immutables
                       children: [
-                        Icon(Icons.search),
-                        SizedBox(width: 10),
-                        Text("Search Product, Brans and More"),
+                        const Icon(Icons.search),
+                        const SizedBox(width: 10),
+                        const Text("Search Product, Brans and More"),
                       ],
                     ),
                   )),
@@ -122,6 +123,7 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
+// ignore: camel_case_types
 class dataSearch extends SearchDelegate<String> {
   final productsList = [
     "Brade",
@@ -162,6 +164,7 @@ class dataSearch extends SearchDelegate<String> {
 
   @override
   Widget buildResults(BuildContext context) {
+    // ignore: sized_box_for_whitespace
     return Container(
       height: 100,
       width: 100,
@@ -193,14 +196,14 @@ class dataSearch extends SearchDelegate<String> {
           title: RichText(
             text: TextSpan(
               text: suggesationList[index].substring(0, query.length),
-              style: TextStyle(
+              style: const TextStyle(
                 color: Colors.deepOrange,
                 fontWeight: FontWeight.bold,
               ),
               children: [
                 TextSpan(
                   text: suggesationList[index].substring(query.length),
-                  style: TextStyle(color: Colors.grey),
+                  style: const TextStyle(color: Colors.grey),
                 ),
               ],
             ),
