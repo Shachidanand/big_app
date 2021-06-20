@@ -47,18 +47,28 @@ class _HomePageState extends State<HomePage> {
           preferredSize: const Size.fromHeight(55.0),
           child: Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Container(
-              color: Colors.white,
-              child: TextFormField(
-                decoration: const InputDecoration(
-                  hintStyle: TextStyle(
-                    fontSize: 15.0,
-                  ),
-                  prefixIcon: Icon(Icons.search),
-                  hintText: "Search For Products, Brand and More",
-                  border: InputBorder.none,
-                ),
-              ),
+            child: InkWell(
+              onTap: () {
+                showSearch(
+                  context: context,
+                  delegate: dataSearch(),
+                );
+              },
+              child: Container(
+                  height: 45.0,
+                  color: Colors.white,
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      // ignore: prefer_const_literals_to_create_immutables
+                      children: [
+                        const Icon(Icons.search),
+                        const SizedBox(width: 10),
+                        const Text("Search Product, Brans and More"),
+                      ],
+                    ),
+                  )),
             ),
           ),
         ),
@@ -106,10 +116,99 @@ class _HomePageState extends State<HomePage> {
                   subtitle:
                       const Text('this is a description of the motivation')),
             ),
-            Bakery(),
           ],
         ),
       ),
+    );
+  }
+}
+
+// ignore: camel_case_types
+class dataSearch extends SearchDelegate<String> {
+  final productsList = [
+    "Brade",
+    "Wai Wai",
+    "Apple",
+    "Banana",
+    "Tamato",
+    "CauliFlower",
+  ];
+  final recentList = [
+    "Brade",
+    "Apple",
+    "Banana",
+  ];
+
+  @override
+  List<Widget>? buildActions(BuildContext context) {
+    return [
+      IconButton(
+        onPressed: () {
+          query = "";
+        },
+        icon: const Icon(Icons.clear),
+      )
+    ];
+  }
+
+  @override
+  Widget? buildLeading(BuildContext context) {
+    return IconButton(
+      onPressed: () {
+        close(context, "");
+      },
+      icon: AnimatedIcon(
+          icon: AnimatedIcons.menu_arrow, progress: transitionAnimation),
+    );
+  }
+
+  @override
+  Widget buildResults(BuildContext context) {
+    // ignore: sized_box_for_whitespace
+    return Container(
+      height: 100,
+      width: 100,
+      child: Card(
+        color: Colors.red,
+        child: Center(child: Text(query)),
+      ),
+    );
+  }
+
+  @override
+  Widget buildSuggestions(BuildContext context) {
+    final suggesationList = query.isEmpty
+        ? recentList
+        : productsList
+            .where(
+              (p) => p.toLowerCase().startsWith(
+                    query.toLowerCase(),
+                  ),
+            )
+            .toList();
+
+    return ListView.builder(
+      itemBuilder: (context, index) => ListTile(
+          onTap: () {
+            showResults(context);
+          },
+          leading: const Icon(Icons.watch_later_outlined),
+          title: RichText(
+            text: TextSpan(
+              text: suggesationList[index].substring(0, query.length),
+              style: const TextStyle(
+                color: Colors.deepOrange,
+                fontWeight: FontWeight.bold,
+              ),
+              children: [
+                TextSpan(
+                  text: suggesationList[index].substring(query.length),
+                  style: const TextStyle(color: Colors.grey),
+                ),
+              ],
+            ),
+          )),
+      itemCount: suggesationList.length,
     );
   }
 }
