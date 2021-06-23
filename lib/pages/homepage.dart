@@ -6,6 +6,7 @@ import 'package:big_app/widgets/topdivision.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:velocity_x/velocity_x.dart';
 
 // ignore: use_key_in_widget_constructors
 class HomePage extends StatefulWidget {
@@ -65,7 +66,7 @@ class _HomePageState extends State<HomePage> {
                       children: [
                         const Icon(Icons.search),
                         const SizedBox(width: 10),
-                        const Text("Search Product, Brans and More"),
+                        const Text("Search Product, Brands and More"),
                       ],
                     ),
                   )),
@@ -99,8 +100,18 @@ class _HomePageState extends State<HomePage> {
               padding: EdgeInsets.only(left: 8.0),
               child: DivisionsWidget(),
             ),
-            Image.network(
-                "https://bigmart.com.np/images/BIGMART-BIG-BUDHABAR-OFFER_MAIN.jpg"),
+            // Image.network(
+            //     "https://bigmart.com.np/images/BIGMART-BIG-BUDHABAR-OFFER_MAIN.jpg"),
+            VxSwiper.builder(
+              autoPlay: true,
+              autoPlayAnimationDuration: const Duration(seconds: 1),
+              itemCount: 2,
+              aspectRatio: 16 / 8,
+              itemBuilder: (context, index) {
+                return Image.network(
+                    "https://bigmart.com.np/images/BIGMART-BIG-BUDHABAR-OFFER_MAIN.jpg");
+              },
+            ),
             Bakery(),
             const SizedBox(
               height: 5,
