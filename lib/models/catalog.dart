@@ -1,11 +1,24 @@
 class CatalogModel {
+  static final catModel = CatalogModel._internal();
+
+  CatalogModel._internal();
+
+  factory CatalogModel() => catModel;
+
   static List<Item> items = [];
+
+  /// GET ELEMENT BY ID
+  Item getById(int id) => items.firstWhere((element) => element.id == id);
+
+  ///// GET BY POSITION
+  Item getByPosition(int pos) => items[pos];
 }
 
 class Item {
-  final num id;
+  final int id;
   final String bm;
   final String name;
+  final String desc;
   final String image;
   final num price;
   final String division;
@@ -18,6 +31,7 @@ class Item {
       required this.bm,
       required this.name,
       required this.image,
+      required this.desc,
       required this.price,
       required this.division,
       required this.discount,
@@ -29,6 +43,7 @@ class Item {
       id: map["id"],
       bm: map["bm"],
       name: map["name"],
+      desc: map["desc"],
       image: map["image"],
       price: map["price"],
       division: map["division"],
@@ -42,6 +57,7 @@ class Item {
         "id": id,
         "bm": bm,
         "name": name,
+        "desc": desc,
         "image": image,
         "price": price,
         "division": division,
