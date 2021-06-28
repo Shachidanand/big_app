@@ -1,3 +1,5 @@
+import 'package:big_app/core/store.dart';
+import 'package:big_app/models/cart.dart';
 import 'package:big_app/models/themes.dart';
 import 'package:big_app/utils/routes.dart';
 import 'package:big_app/widgets/homewidgets/add_to_cart.dart';
@@ -16,9 +18,11 @@ class HomeDetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final _cart = (VxState.store as MyStore).cart;
     return Scaffold(
       backgroundColor: MyTheme.backColor,
       appBar: AppBar(
+        elevation: 0.0,
         title: Image.asset(
           "assets/images/logo.png",
           width: 100,
@@ -36,20 +40,30 @@ class HomeDetailPage extends StatelessWidget {
             icon: const Icon(
               CupertinoIcons.bell_fill,
               color: Colors.white,
-              size: 15,
+              size: 25,
             ),
           ),
-          IconButton(
-            visualDensity:
-                const VisualDensity(horizontal: -4.0, vertical: -4.0),
-            onPressed: () => Navigator.pushNamed(context, MyRoutes.cartPage),
-            padding: EdgeInsets.zero,
-            icon: const Icon(
-              CupertinoIcons.cart_fill,
-              color: Colors.white,
-              size: 15,
-            ),
-          )
+          VxBuilder(
+            // ignore: prefer_const_literals_to_create_immutables
+            mutations: {AddMutation, RemoveMutation},
+            builder: (context, store, status) {
+              return IconButton(
+                visualDensity:
+                    const VisualDensity(horizontal: -4.0, vertical: -4.0),
+                onPressed: () =>
+                    Navigator.pushNamed(context, MyRoutes.cartPage),
+                padding: EdgeInsets.zero,
+                icon: const Icon(
+                  CupertinoIcons.cart_fill,
+                  color: Colors.white,
+                  size: 25,
+                ).badge(color: MyTheme.blueColor, count: _cart.items.length),
+              );
+            },
+          ),
+          const SizedBox(
+            width: 10,
+          ),
         ],
       ),
       bottomNavigationBar: ButtonBar(

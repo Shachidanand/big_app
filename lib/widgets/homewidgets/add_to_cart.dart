@@ -1,10 +1,10 @@
+import 'package:big_app/core/store.dart';
 import 'package:big_app/models/cart.dart';
-import 'package:big_app/models/catalog.dart';
 import 'package:big_app/models/themes.dart';
 import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';
 
-class AddToCart extends StatefulWidget {
+class AddToCart extends StatelessWidget {
   // ignore: prefer_typing_uninitialized_variables
   final catalog;
   const AddToCart({
@@ -12,25 +12,28 @@ class AddToCart extends StatefulWidget {
     this.catalog,
   }) : super(key: key);
 
-  @override
-  State<AddToCart> createState() => _AddToCartState();
-}
+//   @override
+//   State<AddToCart> createState() => _AddToCartState();
+// }
 
-class _AddToCartState extends State<AddToCart> {
-  final _cart = CartModal();
+// class _AddToCartState extends State<AddToCart> {
+  // final _cart = CartModal();
 
   @override
   Widget build(BuildContext context) {
-    bool isInCart = _cart.items.contains(widget.catalog);
+    VxState.watch(context, on: [AddMutation, RemoveMutation]);
+    final CartModal _cart = (VxState.store as MyStore).cart;
+    // final CatalogModel _catalog = (VxState.store as MyStore).catalog;
+    bool isInCart = _cart.items.contains(catalog);
     return InkWell(
       onTap: () {
         if (!isInCart) {
-          isInCart = isInCart.toggle();
-          final _catalog = CatalogModel();
-
-          _cart.catalog = _catalog;
-          _cart.add(widget.catalog);
-          setState(() {});
+          // isInCart = isInCart.toggle();
+          // final _catalog = CatalogModel();
+          // _cart.catalog = _catalog;
+          // _cart.add(catalog);
+          AddMutation(catalog);
+          // setState(() {});
         }
       },
       child: Container(
