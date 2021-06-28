@@ -1,3 +1,4 @@
+import 'package:big_app/core/store.dart';
 import 'package:big_app/models/cart.dart';
 import 'package:big_app/models/themes.dart';
 import 'package:flutter/cupertino.dart';
@@ -56,7 +57,7 @@ class CartPage extends StatelessWidget {
       ),
       body: Column(
         children: [
-          const _CartList().p16().expand(),
+          _CartList().p16().expand(),
           const Divider(),
         ],
       ),
@@ -65,35 +66,46 @@ class CartPage extends StatelessWidget {
 }
 
 class _CartTotal extends StatelessWidget {
-  final _cart = CartModal();
+  // final _cart = CartModal();
+  final CartModal _cart = (VxState.store as MyStore).cart;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: 50,
       width: context.screenWidth / 2,
-      child: "Total : रु. ${_cart.totalPrice}/-"
-          .text
-          .xl2
-          .bold
-          .color(Colors.green)
-          .make()
-          .p16()
-          .px16(),
+      // child: "Total : रु. ${_cart.totalPrice}/-"
+      //     .text
+      //     .xl2
+      //     .bold
+      //     .color(Colors.green)
+      //     .make()
+      //     .p16()
+      //     .px16(),
+      child: VxBuilder(
+        // ignore: prefer_const_literals_to_create_immutables
+        mutations: {RemoveMutation},
+        builder: (context, store, status) {
+          return "Total : रु. ${_cart.totalPrice}/-"
+              .text
+              .xl2
+              .bold
+              .color(Colors.green)
+              .make()
+              .p16()
+              .px16();
+        },
+        // ignore: prefer_const_literals_to_create_immutables
+      ),
     );
   }
 }
 
-class _CartList extends StatefulWidget {
-  const _CartList({Key? key}) : super(key: key);
-
-  @override
-  __CartListState createState() => __CartListState();
-}
-
-class __CartListState extends State<_CartList> {
-  final _cart = CartModal();
+class _CartList extends StatelessWidget {
+  // final _cart = CartModal();
   @override
   Widget build(BuildContext context) {
+    VxState.watch(context, on: [RemoveMutation]);
+    final CartModal _cart = (VxState.store as MyStore).cart;
     return _cart.items.isEmpty
         ? Card(child: "Nothing To Show".text.xl.makeCentered())
         : ListView.builder(
@@ -103,8 +115,9 @@ class __CartListState extends State<_CartList> {
                 leading: Image.network(_cart.items[index].image),
                 trailing: IconButton(
                   onPressed: () {
-                    _cart.remove(_cart.items[index]);
-                    setState(() {});
+                    // _cart.remove(_cart.items[index]);
+                    RemoveMutation(_cart.items[index]);
+                    // setState(() {});
                   },
                   icon: const Icon(Icons.remove_circle_outline),
                 ),
