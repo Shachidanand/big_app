@@ -5,21 +5,27 @@ import 'package:big_app/models/cart.dart';
 import 'package:big_app/models/catalog.dart';
 import 'package:big_app/models/themes.dart';
 import 'package:big_app/utils/routes.dart';
-import 'package:big_app/widgets/bakery.dart';
-import 'package:big_app/widgets/search.dart';
-import 'package:big_app/widgets/topdivision.dart';
+import 'package:big_app/widgets/dairy.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:velocity_x/velocity_x.dart';
 
-// ignore: use_key_in_widget_constructors
-class HomePage extends StatefulWidget {
+import 'package:big_app/widgets/search.dart';
+
+// ignore: must_be_immutable
+class DivisionResult extends StatefulWidget {
+  String value;
+  DivisionResult({
+    Key? key,
+    required this.value,
+  }) : super(key: key);
+
   @override
-  State<HomePage> createState() => _HomePageState();
+  _DivisionResultState createState() => _DivisionResultState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _DivisionResultState extends State<DivisionResult> {
   @override
   void initState() {
     super.initState();
@@ -27,7 +33,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   loadData() async {
-    await Future.delayed(const Duration(seconds: 1));
+    await Future.delayed(const Duration(seconds: 2));
     final catlogJson = await rootBundle.loadString("assets/files/catlog.json");
     final decoadedData = jsonDecode(catlogJson);
     var productsData = decoadedData["products"];
@@ -42,9 +48,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    // final dumyList = List.generate(20, (index) => CatalogModel.items[0]);
     return Scaffold(
-      drawer: const Drawer(),
       appBar: AppBar(
         elevation: 0.0,
         title: Image.asset(
@@ -90,42 +94,12 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
-      body: SingleChildScrollView(
+      body: Center(
         child: Column(
-          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Padding(
-              padding: EdgeInsets.only(left: 8.0),
-              child: DivisionsWidget(),
-            ),
-            // Image.network(
-            //     "https://bigmart.com.np/images/BIGMART-BIG-BUDHABAR-OFFER_MAIN.jpg"),
-            VxSwiper.builder(
-              autoPlay: true,
-              autoPlayAnimationDuration: const Duration(seconds: 1),
-              itemCount: 2,
-              aspectRatio: 16 / 8,
-              itemBuilder: (context, index) {
-                return Image.network(
-                  "https://bigmart.com.np/images/BIGMART-BIG-BUDHABAR-OFFER_MAIN.jpg",
-                );
-              },
-            ),
-            Bakery(),
-            const SizedBox(
-              height: 5,
-            ),
-            //Dairy(),
-            const Text(
-              'Demo Headline 2',
-              style: TextStyle(fontSize: 18),
-            ),
-            Card(
-              child: ListTile(
-                  title: Text('Motivation $int'),
-                  subtitle:
-                      const Text('this is a description of the motivation')),
-            ),
+            //widget.value.text.make(),
+            Dairy(),
           ],
         ),
       ),
