@@ -1,6 +1,7 @@
 import 'package:big_app/core/store.dart';
 import 'package:big_app/models/cart.dart';
 import 'package:big_app/models/themes.dart';
+import 'package:big_app/utils/routes.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -31,11 +32,21 @@ class CartPage extends StatelessWidget {
               ),
               InkWell(
                 onTap: () {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(
-                      content: "Buying Not Supported Yet".text.make(),
-                    ),
-                  );
+                  final CartModal _cart = (VxState.store as MyStore).cart;
+                  if (_cart.items.isNotEmpty) {
+                    Navigator.pushNamed(context, MyRoutes.checkOutPage);
+                  } else {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: "No Item In Cart to Purchase".text.make(),
+                      ),
+                    );
+                  }
+                  // ScaffoldMessenger.of(context).showSnackBar(
+                  //   SnackBar(
+                  //     content: "Buying Not Supported Yet".text.make(),
+                  //   ),
+                  // );
                 },
                 child: Container(
                   width: context.screenWidth / 2,

@@ -29,6 +29,9 @@ class CartModal {
   num get totalPrice =>
       items.fold(0, (total, current) => total + current.price);
 
+  num get totalDiscount =>
+      items.fold(0, (discount, current) => discount + current.discount);
+
   // /// ADD ITEM
   // void add(Item item) {
   //   _itemIds.add(item.id);

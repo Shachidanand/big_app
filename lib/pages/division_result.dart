@@ -6,6 +6,7 @@ import 'package:big_app/models/catalog.dart';
 import 'package:big_app/models/themes.dart';
 import 'package:big_app/utils/routes.dart';
 import 'package:big_app/widgets/dairy.dart';
+import 'package:big_app/widgets/homewidgets/bottombar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -94,6 +95,7 @@ class _DivisionResultState extends State<DivisionResult> {
           ),
         ],
       ),
+      bottomNavigationBar: MyBottomBar(),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
