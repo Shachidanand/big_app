@@ -95,7 +95,7 @@ class _DivisionResultState extends State<DivisionResult> {
           ),
         ],
       ),
-      bottomNavigationBar: MyBottomBar(),
+      bottomNavigationBar: const MyBottomBar(),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

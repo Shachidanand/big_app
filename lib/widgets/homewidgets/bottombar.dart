@@ -2,9 +2,10 @@ import 'package:big_app/models/themes.dart';
 import 'package:big_app/utils/routes.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:velocity_x/velocity_x.dart';
+
 
 class MyBottomBar extends StatelessWidget {
+  const MyBottomBar({ Key? key }) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Padding(

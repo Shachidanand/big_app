@@ -1,4 +1,5 @@
 import 'package:big_app/models/themes.dart';
+import 'package:big_app/widgets/homewidgets/location.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';
@@ -38,7 +39,8 @@ class ProfilePage extends StatelessWidget {
                             "https://i.pinimg.com/280x280_RS/be/b1/39/beb1395bf8bc0b4eb6289d57feea375a.jpg"),
                         fit: BoxFit.cover,
                       ),
-                      borderRadius: BorderRadius.all(Radius.circular(50.0)),
+                      borderRadius:
+                          const BorderRadius.all(Radius.circular(50.0)),
                       border: Border.all(
                         color: MyTheme.blueColor,
                         width: 2.0,
@@ -57,9 +59,9 @@ class ProfilePage extends StatelessWidget {
             ),
           ),
           Container(
-            padding: EdgeInsets.all(16.0),
-            margin: EdgeInsets.only(top: 180),
-            decoration: BoxDecoration(
+            padding: const EdgeInsets.all(16.0),
+            margin: const EdgeInsets.only(top: 180),
+            decoration: const BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(40),
@@ -68,23 +70,23 @@ class ProfilePage extends StatelessWidget {
             ),
             child: Column(
               children: [
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 Container(
                   height: 50,
-                  margin: EdgeInsets.only(top: 10),
-                  padding: EdgeInsets.only(left: 20),
+                  margin: const EdgeInsets.only(top: 10),
+                  padding: const EdgeInsets.only(left: 20),
                   decoration: BoxDecoration(
                     color: Colors.white,
                     boxShadow: [
                       BoxShadow(
                         color: MyTheme.orangeShadeColor,
-                        offset: Offset(0.0, 1.0), //(x,y)
+                        offset: const Offset(0.0, 1.0), //(x,y)
                         blurRadius: 1.0,
                       ),
                     ],
-                    borderRadius: BorderRadius.only(
+                    borderRadius: const BorderRadius.only(
                       topLeft: Radius.circular(20),
                       topRight: Radius.circular(20),
                     ),
@@ -92,31 +94,31 @@ class ProfilePage extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      Icon(
+                      const Icon(
                         CupertinoIcons.location,
                         color: Colors.grey,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 20,
                       ),
-                      "Kathmandu, Nepal".text.lg.make(),
+                      const MyLocation(),
                     ],
                   ),
                 ),
                 Container(
                   height: 50,
-                  margin: EdgeInsets.only(top: 10),
-                  padding: EdgeInsets.only(left: 20),
+                  margin: const EdgeInsets.only(top: 10),
+                  padding: const EdgeInsets.only(left: 20),
                   decoration: BoxDecoration(
                     color: Colors.white,
                     boxShadow: [
                       BoxShadow(
                         color: MyTheme.orangeShadeColor,
-                        offset: Offset(0.0, 1.0), //(x,y)
+                        offset: const Offset(0.0, 1.0), //(x,y)
                         blurRadius: 1.0,
                       ),
                     ],
-                    borderRadius: BorderRadius.only(
+                    borderRadius: const BorderRadius.only(
                       topLeft: Radius.circular(20),
                       topRight: Radius.circular(20),
                     ),
@@ -124,14 +126,14 @@ class ProfilePage extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      Icon(
+                      const Icon(
                         CupertinoIcons.phone,
                         color: Colors.grey,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 20,
                       ),
-                      "+977-980XXXXXXX".text.lg.make(),
+                      "+977-980XXXXXXX".text.make(),
                     ],
                   ),
                 ),
