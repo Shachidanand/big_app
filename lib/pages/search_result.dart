@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:big_app/models/catalog.dart';
 import 'package:big_app/widgets/dairy.dart';
 import 'package:flutter/cupertino.dart';
@@ -16,6 +15,7 @@ class SearchResult extends StatefulWidget {
   }) : super(key: key);
 
   @override
+  // ignore: no_logic_in_create_state
   State<SearchResult> createState() => _SearchResultState(value);
 }
 

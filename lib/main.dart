@@ -1,6 +1,8 @@
 import 'package:big_app/core/store.dart';
 import 'package:big_app/pages/cart_page.dart';
+import 'package:big_app/pages/checkout_page.dart';
 import 'package:big_app/pages/homepage.dart';
+import 'package:big_app/pages/profile_page.dart';
 import 'package:big_app/utils/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';
@@ -27,6 +29,8 @@ class MyApp extends StatelessWidget {
         "/": (context) => HomePage(),
         MyRoutes.homePage: (context) => HomePage(),
         MyRoutes.cartPage: (context) => const CartPage(),
+        MyRoutes.profilePage: (context) => const ProfilePage(),
+        MyRoutes.checkOutPage: (context) => CheckOutPage(),
 
         //MyRoutes.loginPage: (context) => LoginPage(),
       },

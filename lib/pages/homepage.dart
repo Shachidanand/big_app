@@ -6,6 +6,7 @@ import 'package:big_app/models/catalog.dart';
 import 'package:big_app/models/themes.dart';
 import 'package:big_app/utils/routes.dart';
 import 'package:big_app/widgets/bakery.dart';
+import 'package:big_app/widgets/homewidgets/bottombar.dart';
 import 'package:big_app/widgets/search.dart';
 import 'package:big_app/widgets/topdivision.dart';
 import 'package:flutter/cupertino.dart';
@@ -90,6 +91,7 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
+      bottomNavigationBar: MyBottomBar(),
       body: SingleChildScrollView(
         child: Column(
           mainAxisSize: MainAxisSize.min,

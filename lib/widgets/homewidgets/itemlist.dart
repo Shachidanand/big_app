@@ -1,4 +1,5 @@
 import 'package:big_app/models/catalog.dart';
+import 'package:big_app/models/themes.dart';
 import 'package:big_app/widgets/homewidgets/productimage.dart';
 import 'package:flutter/material.dart';
 
@@ -35,6 +36,7 @@ class ItemList extends StatelessWidget {
               "रु. ${catalog.price.toString()}",
               style: const TextStyle(
                 fontSize: 20.0,
+                color: Color(0xfffc7b13),
                 fontWeight: FontWeight.bold,
               ),
             ),
