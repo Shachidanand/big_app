@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class CheckOutPage extends StatelessWidget {
+  CheckOutPage({Key? key}) : super(key: key);
+
   final CartModal _cart = (VxState.store as MyStore).cart;
   @override
   Widget build(BuildContext context) {
@@ -41,60 +43,57 @@ class CheckOutPage extends StatelessWidget {
           children: [
             Padding(
               padding: const EdgeInsets.all(16.0),
-              child: Container(
-                height: 240,
-                child: Card(
-                  child: Padding(
-                    padding: const EdgeInsets.all(32.0),
-                    child: Column(
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            "Total Item :".text.xl3.bold.make(),
-                            " ${_cart.items.length}".text.xl3.bold.make(),
-                          ],
-                        ),
-                        const Divider(),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            "Total Price :".text.xl3.bold.make(),
-                            "रु. ${_cart.totalPrice}/-"
-                                .text
-                                .xl3
-                                .bold
-                                .color(Colors.green)
-                                .make(),
-                          ],
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            "Discount :".text.xl3.bold.make(),
-                            "रु. ${_cart.totalDiscount}/-"
-                                .text
-                                .xl3
-                                .color(Colors.green)
-                                .bold
-                                .make(),
-                          ],
-                        ),
-                        const Divider(),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            "Net Payable:".text.xl3.bold.make(),
-                            "रु. ${_cart.totalPrice - _cart.totalDiscount}/-"
-                                .text
-                                .xl3
-                                .color(Colors.green)
-                                .bold
-                                .make(),
-                          ],
-                        ),
-                      ],
-                    ),
+              child: Card(
+                child: Padding(
+                  padding: const EdgeInsets.all(32.0),
+                  child: Column(
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          "Total Item :".text.xl3.bold.make(),
+                          " ${_cart.items.length}".text.xl3.bold.make(),
+                        ],
+                      ),
+                      const Divider(),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          "Total Price :".text.xl3.bold.make(),
+                          "रु. ${_cart.totalPrice}/-"
+                              .text
+                              .xl3
+                              .bold
+                              .color(Colors.green)
+                              .make(),
+                        ],
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          "Discount :".text.xl3.bold.make(),
+                          "रु. ${_cart.totalDiscount}/-"
+                              .text
+                              .xl3
+                              .color(Colors.green)
+                              .bold
+                              .make(),
+                        ],
+                      ),
+                      const Divider(),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          "Net Payable:".text.xl3.bold.make(),
+                          "रु. ${_cart.totalPrice - _cart.totalDiscount}/-"
+                              .text
+                              .xl3
+                              .color(Colors.green)
+                              .bold
+                              .make(),
+                        ],
+                      ),
+                    ],
                   ),
                 ),
               ),

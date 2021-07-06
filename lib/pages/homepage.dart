@@ -91,7 +91,7 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
-      bottomNavigationBar: MyBottomBar(),
+      bottomNavigationBar: const MyBottomBar(),
       body: SingleChildScrollView(
         child: Column(
           mainAxisSize: MainAxisSize.min,
