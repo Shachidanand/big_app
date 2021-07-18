@@ -35,6 +35,7 @@ class ItemList extends StatelessWidget {
               "रु. ${catalog.price.toString()}",
               style: const TextStyle(
                 fontSize: 20.0,
+                color: Color(0xfffc7b13),
                 fontWeight: FontWeight.bold,
               ),
             ),

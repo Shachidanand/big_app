@@ -1,3 +1,4 @@
+import 'package:big_app/pages/search_result.dart';
 import 'package:flutter/material.dart';
 
 // ignore: use_key_in_widget_constructors
@@ -76,14 +77,19 @@ class dataSearch extends SearchDelegate<String> {
   @override
   Widget buildResults(BuildContext context) {
     // ignore: sized_box_for_whitespace
-    return Container(
-      height: 100,
-      width: 100,
-      child: Card(
-        color: Colors.red,
-        child: Center(child: Text(query)),
-      ),
+    return SearchResult(
+      value: query,
     );
+    // Container(
+    //   height: 100,
+    //   width: 100,
+    //   child: Card(
+    //     color: Colors.red,
+    //     child: Center(
+    //       child: Text(query),
+    //     ),
+    //   ),
+    // );
   }
 
   @override
