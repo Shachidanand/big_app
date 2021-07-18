@@ -51,7 +51,7 @@ class dataSearch extends SearchDelegate<String> {
   ];
 
   @override
-  List<Widget>? buildActions(BuildContext context) {
+  List<Widget> buildActions(BuildContext context) {
     return [
       IconButton(
         onPressed: () {
@@ -63,7 +63,7 @@ class dataSearch extends SearchDelegate<String> {
   }
 
   @override
-  Widget? buildLeading(BuildContext context) {
+  Widget buildLeading(BuildContext context) {
     return IconButton(
       onPressed: () {
         close(context, "");
@@ -122,4 +122,77 @@ class dataSearch extends SearchDelegate<String> {
       itemCount: suggesationList.length,
     );
   }
+
+  // @override
+  // List<Widget>? buildActions(BuildContext context) {
+  //   return [
+  //     IconButton(
+  //       onPressed: () {
+  //         query = "";
+  //       },
+  //       icon: const Icon(Icons.clear),
+  //     )
+  //   ];
+  // }
+
+  // @override
+  // Widget? buildLeading(BuildContext context) {
+  //   return IconButton(
+  //     onPressed: () {
+  //       close(context, "");
+  //     },
+  //     icon: AnimatedIcon(
+  //         icon: AnimatedIcons.menu_arrow, progress: transitionAnimation),
+  //   );
+  // }
+
+  // @override
+  // Widget buildResults(BuildContext context) {
+  //   // ignore: sized_box_for_whitespace
+  //   return Container(
+  //     height: 100,
+  //     width: 100,
+  //     child: Card(
+  //       color: Colors.red,
+  //       child: Center(child: Text(query)),
+  //     ),
+  //   );
+  // }
+
+  // @override
+  // Widget buildSuggestions(BuildContext context) {
+  //   final suggesationList = query.isEmpty
+  //       ? recentList
+  //       : productsList
+  //           .where(
+  //             (p) => p.toLowerCase().startsWith(
+  //                   query.toLowerCase(),
+  //                 ),
+  //           )
+  //           .toList();
+
+  //   return ListView.builder(
+  //     itemBuilder: (context, index) => ListTile(
+  //         onTap: () {
+  //           showResults(context);
+  //         },
+  //         leading: const Icon(Icons.watch_later_outlined),
+  //         title: RichText(
+  //           text: TextSpan(
+  //             text: suggesationList[index].substring(0, query.length),
+  //             style: const TextStyle(
+  //               color: Colors.deepOrange,
+  //               fontWeight: FontWeight.bold,
+  //             ),
+  //             children: [
+  //               TextSpan(
+  //                 text: suggesationList[index].substring(query.length),
+  //                 style: const TextStyle(color: Colors.grey),
+  //               ),
+  //             ],
+  //           ),
+  //         )),
+  //     itemCount: suggesationList.length,
+  //   );
+  // }
 }
